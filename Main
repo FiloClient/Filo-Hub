@@ -2,14 +2,17 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloC
 local Window = Library.CreateLib("Filo Hub", "Midnight")
 
 if game.PlaceId == 698448212 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-for-Robeats/main/Autobot",true))();
+  local Tab = Window:NewTab("Main")
 
 
 
 else
 
-local Tab = Window:NewTab("Main")
+
 local Section = Tab:NewSection("Vape")
 
 
 end
+
+
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-for-Robeats/main/Autobot",true))();
