@@ -1,0 +1,10 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2",true))();
+local Window = Library.CreateLib("Filo Hub", "Sentinel")
+
+local Scripts = Window:NewTab("Scripts for RoBeats")
+local Section = Tab:NewSection("Filo for RoBeats")
+
+Section:NewButton("Execute Filo", "This executes Filo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-for-Robeats/main/Autobot",true))();
+end)
+
