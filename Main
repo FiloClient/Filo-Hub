@@ -10,6 +10,9 @@ if  game.PlaceId == 698448212 then
   MainSectionSection:NewButton("Execute Filo", "This executes Filo", function()
       loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-for-Robeats/main/Autobot",true))();
   end)
-else local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2",true))();
-    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2",true))();
+else   local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2",true))();
+    
+    local Window = Library.CreateLib("Filo Hub", "Midnight")
+    local Scripts = Window:NewTab("Scripts for test") 
+
 end
