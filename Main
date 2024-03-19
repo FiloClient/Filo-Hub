@@ -12,16 +12,19 @@ MainSection:NewButton("Filo Autoplay", "This enables Filo Autoplay", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-for-Robeats/main/Autobot",true))();
 end)
 
-MainSection:NewToggle("SPEEEEED", "This makes you nagah after stealing", function(state)
-    if state then
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
-    else
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 20
-    end
+
+--Localplayer
+local Player = Window:NewTab("Localplayer")
+local PlayerSection = Player:NewSection("LocalPlayer")
+
+PlayerSection:NewSlider("SPEEEEED", "This makes you Nagah after stealing", 500, 20, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
 
 
 else
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2?token=GHSAT0AAAAAACPYDHSSATZ6FPUB5TYCEMXQZPYVGVA"))()
 local Window = Library.CreateLib("Filo Hub", "Sentinel")
+
+Print("This game is not supported yet")
 end
