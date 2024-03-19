@@ -8,7 +8,6 @@ local MainSection = Main:NewSection("Scripts")
 
 
 MainSection:NewButton("Filo Autoplay", "This enables Filo Autoplay", function()
-    print("Executed")
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-for-Robeats/main/Autobot",true))();
 end)
 
