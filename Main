@@ -33,15 +33,15 @@ PlayerSection:NewButton("Reset your JumpPower", "This resets your JumpPower (lol
     game.Players.Localplayer.Character.Humanoid.JumpPower = 50
 end)
 
---Orther things
-local Orthers = Window:NewTab("Orthers")
-local OrtherSection = Orthers:NewSection("Orthers")
+--Other things
+local Others = Window:NewTab("Others")
+local OtherSection = Others:NewSection("Others")
 
-OrtherSection:NewButton("Esp", "this enables the esp", function()
+OtherSection:NewButton("Esp", "this enables the esp", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp"))();
 end)
 
---For every orther game
+--For every other game
 else
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2?token=GHSAT0AAAAAACPYDHSSATZ6FPUB5TYCEMXQZPYVGVA"))()
 local Window = Library.CreateLib("Filo Hub", "Sentinel")
@@ -66,11 +66,11 @@ PlayerSection:NewButton("Reset your JumpPower", "This resets your JumpPower (lol
     game.Players.Localplayer.Character.Humanoid.JumpPower = 50
 end)
 
---Orther things
-local Orthers = Window:NewTab("Orthers")
-local OrtherSection = Orthers:NewSection("Orthers")
+--Other things
+local Others = Window:NewTab("Others")
+local OtherSection = Others:NewSection("Others")
 
-OrtherSection:NewButton("Esp", "this enables the esp", function()
+OtherSection:NewButton("Esp", "this enables the esp", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp"))();
 end)
 
