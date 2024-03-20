@@ -1,4 +1,5 @@
-FILO HUB IS NOT FINNISHED PLEASE DO NOT USE IT RIGHT NOW
+FILO HUB IS NOT FINNISHED.
+if you want me to add anyting: https://discord.gg/hJPeav4G4J
 
 Games included in filo hub:
 
