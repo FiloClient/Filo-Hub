@@ -17,8 +17,12 @@ end)
 local Player = Window:NewTab("Localplayer")
 local PlayerSection = Player:NewSection("LocalPlayer")
 
-PlayerSection:NewSlider("SPEEEEED", "This makes you Nagah after stealing", 500, 20, function(s) -- 500 (MaxValue) | 0 (MinValue)
+PlayerSection:NewSlider("SPEEEEED", "This makes you Nagah after stealing", 500, 16, function(s) 
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+PlayerSection:NewButton("Reset your speed", "This resets your speed (lol)", function()
+    game.Players.Localplayer.Character.Humanoid.WalkSpeed = 16
 end)
 
 
