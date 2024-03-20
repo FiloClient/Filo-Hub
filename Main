@@ -25,7 +25,7 @@ PlayerSection:NewButton("Reset your speed", "This resets your speed (lol)", func
     game.Players.Localplayer.Character.Humanoid.WalkSpeed = 16
 end)
 
-PlayerSection:NewSlider("Jump", "This is for my 1.20 classmate named steven so he can feel tall", 500, 50, function(s) 
+PlayerSection:NewSlider("Jump", "This is for my 1.20 classmate named Estripper so he can feel tall", 500, 50, function(s) 
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
 
