@@ -9,6 +9,7 @@ for i, v in pairs(Players) do
     highlightClone.Adornee = v.Character
     highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
     highlightClone.AlwaysOnTop.Value = true
+    highlightClone.Name = "highlight"
 end
 
 
@@ -18,4 +19,9 @@ game.Players.PlayerAdded:Connect(function(player)
     highlightClone.Adornee = player.Character
     highlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
     highlightClone.AlwaysOnTop.Value = true
+    highlightClone.name = "highlight"
+end)
+
+game.Players.PlayerRemoving:Connect(function(playerRemoved)
+    playerRemoved.Character:FindFirstChild("HumanoidRootPart").Highlight:Destroy()
 end)
