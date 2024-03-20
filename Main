@@ -13,9 +13,9 @@ MainSection:NewButton("Filo Autoplay", "This enables Filo Autoplay", function()
 end)
 
 
---Localplayer
-local Player = Window:NewTab("Localplayer")
-local PlayerSection = Player:NewSection("LocalPlayer")
+--player
+local Player = Window:NewTab("Player")
+local PlayerSection = Player:NewSection("Player")
 
 PlayerSection:NewSlider("SPEEEEED", "This makes you Nagah after stealing", 500, 16, function(s) 
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
@@ -63,6 +63,14 @@ end)
 
 PlayerSection:NewButton("Reset your JumpPower", "This resets your JumpPower (lol)", function()
     game.Players.Localplayer.Character.Humanoid.JumpPower = 50
+end)
+
+--Orther things
+local Orthers = Window:NewTab("Orthers")
+local OrtherSection = Orthers:NewSection("Orthers")
+
+OrtherSection:NewButton("Esp", "this enables the esp", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp"))();
 end)
 
 end
