@@ -1,27 +1,25 @@
-local Players = game:GetService("Players")
-local highlight = instance.new("highlight")
-highlight.Name = "Highlight"
-
-
-for i, v in pairs(Players) do
-    repeat wait() until v.Character
-    local highlightClone = highlight:Clone()
-    highlightClone.Adornee = v.Character
-    highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
-    highlightClone.AlwaysOnTop.Value = true
-    highlightClone.Name = "highlight"
+local function ApplyHighlight(character)
+	local highlight = Instance.new("Highlight", character)
+	highlight.Name = "PlayerHighlight"
+	highlight.OutlineColor = Color3.new(0.427451, 0.054902, 0.576471)
+	highlight.FillTransparency = 0.5
+	highlight.Enabled = true
 end
 
+local function OnPlayerAdded(player)
+	player.CharacterAdded:Connect(function(character)
+		ApplyHighlight(character)
+	end)
 
-game.Players.PlayerAdded:Connect(function(player)
-	repeat wait() until player.Character
-	local highlightClone = highlight:Clone()
-    highlightClone.Adornee = player.Character
-    highlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
-    highlightClone.AlwaysOnTop.Value = true
-    highlightClone.name = "highlight"
-end)
 
-game.Players.PlayerRemoving:Connect(function(playerRemoved)
-    playerRemoved.Character:FindFirstChild("HumanoidRootPart").Highlight:Destroy()
-end)
+	if player.Character then
+		ApplyHighlight(player.Character)
+	end
+end
+
+game.Players.PlayerAdded:Connect(OnPlayerAdded)
+
+
+for _, player in ipairs(game.Players:GetPlayers()) do
+	OnPlayerAdded(player)
+end
