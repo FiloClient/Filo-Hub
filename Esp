@@ -1,0 +1,21 @@
+local Players = game:GetService("Players"):GetChildren()
+local highlight = instance.new("highlight")
+highlight.Name = "Highlight"
+
+
+for i, v in pairs(Players) do
+    repeat wait() until v.Character
+    local highlightClone = highlight:Clone()
+    highlightClone.Adornee = v.Character
+    highlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
+    highlightClone.AlwaysOnTop.Value = true
+end
+
+
+game.Players.PlayerAdded:Connect(function(player)
+	repeat wait() until player.Character
+	local highlightClone = highlight:Clone()
+    highlightClone.Adornee = player.Character
+    highlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
+    highlightClone.AlwaysOnTop.Value = true
+end)
