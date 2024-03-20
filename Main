@@ -25,6 +25,13 @@ PlayerSection:NewButton("Reset your speed", "This resets your speed (lol)", func
     game.Players.Localplayer.Character.Humanoid.WalkSpeed = 16
 end)
 
+PlayerSection:NewSlider("Jump", "This is for my 1.20 classmate named Estripper so he can jump high", 500, 50, function(s) 
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+PlayerSection:NewButton("Reset your JumpPower", "This resets your JumpPower (lol)", function()
+    game.Players.Localplayer.Character.Humanoid.JumpPower = 50
+end)
 
 else
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2?token=GHSAT0AAAAAACPYDHSSATZ6FPUB5TYCEMXQZPYVGVA"))()
