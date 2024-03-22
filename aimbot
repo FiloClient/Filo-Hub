@@ -112,4 +112,15 @@ removeButton.AnchorPoint = Vector2.new(0.5, 0)
 removeButton.BackgroundColor3 = Color3.fromRGB(100, 0, 0)
 removeButton.BorderSizePixel = 0
 removeButton.Font = Enum.Font.SourceSans
-removeButton.TextColor3 = Color3.fromRGB(255
+removeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+removeButton.TextSize = 14
+removeButton.Parent = frame
+
+-- Function to remove cheat and close GUI
+local function removeCheat()
+    -- Remove cheat logic (replace with your own logic)
+    print("Cheat removed")
+    gui:Destroy()
+end
+
+removeButton.MouseButton1Click:Connect(removeCheat)
