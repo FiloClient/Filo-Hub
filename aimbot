@@ -1,4 +1,4 @@
--- Roblox Aimbot Script with Mobile-Compatible GUI, Draggable Bar, Remove Cheat Button, and Basic Aimbot
+-- Roblox Aimbot and Triggerbot Script with Mobile-Compatible GUI, Draggable Bar, Remove Cheat Button
 
 -- GUI Setup
 local gui = Instance.new("ScreenGui")
@@ -9,8 +9,8 @@ gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 -- Frame to contain GUI elements
 local frame = Instance.new("Frame")
 frame.Name = "MainFrame"
-frame.Size = UDim2.new(0, 200, 0, 140)
-frame.Position = UDim2.new(0.5, -100, 0.5, -70)
+frame.Size = UDim2.new(0, 200, 0, 180)
+frame.Position = UDim2.new(0.5, -100, 0.5, -90)
 frame.BackgroundTransparency = 1
 frame.Parent = gui
 
@@ -60,72 +60,56 @@ game:GetService("UserInputService").InputChanged:Connect(function(input)
 end)
 
 -- Toggle button for aimbot
-local toggleButton = Instance.new("TextButton")
-toggleButton.Text = "Aimbot: OFF"
-toggleButton.Size = UDim2.new(0.3, 0, 0.3, 0)
-toggleButton.Position = UDim2.new(0.05, 0, 0.35, 0)
-toggleButton.AnchorPoint = Vector2.new(0, 0.5)
-toggleButton.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
-toggleButton.BorderSizePixel = 0
-toggleButton.Font = Enum.Font.SourceSans
-toggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-toggleButton.TextSize = 18
-toggleButton.Parent = frame
+local aimbotEnabled = false
+local aimbotButton = Instance.new("TextButton")
+aimbotButton.Text = "Aimbot: OFF"
+aimbotButton.Size = UDim2.new(0.45, 0, 0.25, 0)
+aimbotButton.Position = UDim2.new(0.025, 0, 0.3, 0)
+aimbotButton.AnchorPoint = Vector2.new(0, 0.5)
+aimbotButton.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+aimbotButton.BorderSizePixel = 0
+aimbotButton.Font = Enum.Font.SourceSans
+aimbotButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+aimbotButton.TextSize = 14
+aimbotButton.Parent = frame
 
 -- Function to toggle aimbot
-local aimbotEnabled = false
 local function toggleAimbot()
     aimbotEnabled = not aimbotEnabled
-    toggleButton.Text = aimbotEnabled and "Aimbot: ON" or "Aimbot: OFF"
+    aimbotButton.Text = aimbotEnabled and "Aimbot: ON" or "Aimbot: OFF"
 end
 
-toggleButton.MouseButton1Click:Connect(toggleAimbot)
+aimbotButton.MouseButton1Click:Connect(toggleAimbot)
+
+-- Toggle button for triggerbot
+local triggerbotEnabled = false
+local triggerbotButton = Instance.new("TextButton")
+triggerbotButton.Text = "Triggerbot: OFF"
+triggerbotButton.Size = UDim2.new(0.45, 0, 0.25, 0)
+triggerbotButton.Position = UDim2.new(0.525, 0, 0.3, 0)
+triggerbotButton.AnchorPoint = Vector2.new(0, 0.5)
+triggerbotButton.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+triggerbotButton.BorderSizePixel = 0
+triggerbotButton.Font = Enum.Font.SourceSans
+triggerbotButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+triggerbotButton.TextSize = 14
+triggerbotButton.Parent = frame
+
+-- Function to toggle triggerbot
+local function toggleTriggerbot()
+    triggerbotEnabled = not triggerbotEnabled
+    triggerbotButton.Text = triggerbotEnabled and "Triggerbot: ON" or "Triggerbot: OFF"
+end
+
+triggerbotButton.MouseButton1Click:Connect(toggleTriggerbot)
 
 -- Remove Cheat Button
 local removeButton = Instance.new("TextButton")
 removeButton.Text = "Remove Cheat"
-removeButton.Size = UDim2.new(0.3, 0, 0.3, 0)
-removeButton.Position = UDim2.new(0.35, 0, 0.35, 0)
-removeButton.AnchorPoint = Vector2.new(0, 0.5)
+removeButton.Size = UDim2.new(0.4, 0, 0.25, 0)
+removeButton.Position = UDim2.new(0.3, 0, 0.6, 0)
+removeButton.AnchorPoint = Vector2.new(0.5, 0)
 removeButton.BackgroundColor3 = Color3.fromRGB(100, 0, 0)
 removeButton.BorderSizePixel = 0
 removeButton.Font = Enum.Font.SourceSans
-removeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-removeButton.TextSize = 18
-removeButton.Parent = frame
-
--- Function to remove cheat and close GUI
-local function removeCheat()
-    -- Remove cheat logic (replace with your own logic)
-    print("Cheat removed")
-    gui:Destroy()
-end
-
-removeButton.MouseButton1Click:Connect(removeCheat)
-
--- Basic Aimbot Logic
-game:GetService("RunService").RenderStepped:Connect(function()
-    if aimbotEnabled then
-        local closestDistance = math.huge
-        local closestPlayer = nil
-        local playerPosition = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position
-
-        if playerPosition then
-            for _, player in ipairs(game.Players:GetPlayers()) do
-                if player ~= game.Players.LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-                    local targetPosition = player.Character.HumanoidRootPart.Position
-                    local distance = (targetPosition - playerPosition).magnitude
-                    if distance < closestDistance then
-                        closestDistance = distance
-                        closestPlayer = player
-                    end
-                end
-            end
-
-            if closestPlayer then
-                local targetPosition = closestPlayer.Character.HumanoidRootPart.Position
-                game:GetService("Workspace").CurrentCamera.CFrame = CFrame.new(game:GetService("Workspace").CurrentCamera.CFrame.Position, targetPosition)
-            end
-        end
-    end
-end)
+removeButton.TextColor3 = Color3.fromRGB(255
