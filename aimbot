@@ -1,18 +1,33 @@
--- Roblox Aimbot Script with GUI and Aimbot Logic
+-- Roblox Aimbot Script with Improved GUI Design
 
 -- GUI Setup
 local gui = Instance.new("ScreenGui")
+gui.Name = "AimbotGUI"
 gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
+-- Frame to contain GUI elements
+local frame = Instance.new("Frame")
+frame.Name = "MainFrame"
+frame.Size = UDim2.new(0, 200, 0, 100)
+frame.Position = UDim2.new(0.5, -100, 0.5, -50)
+frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+frame.BorderSizePixel = 0
+frame.Parent = gui
+
+-- Toggle button for aimbot
 local toggleButton = Instance.new("TextButton")
 toggleButton.Text = "Aimbot: OFF"
-toggleButton.Size = UDim2.new(0, 200, 0, 50)
-toggleButton.Position = UDim2.new(0.5, -100, 0.5, -25)
-toggleButton.Parent = gui
-
-local aimbotEnabled = false
+toggleButton.Size = UDim2.new(1, 0, 0.5, 0)
+toggleButton.Position = UDim2.new(0, 0, 0, 0)
+toggleButton.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+toggleButton.BorderSizePixel = 0
+toggleButton.Font = Enum.Font.SourceSans
+toggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+toggleButton.TextSize = 18
+toggleButton.Parent = frame
 
 -- Function to toggle aimbot
+local aimbotEnabled = false
 local function toggleAimbot()
     aimbotEnabled = not aimbotEnabled
     toggleButton.Text = aimbotEnabled and "Aimbot: ON" or "Aimbot: OFF"
@@ -20,37 +35,16 @@ end
 
 toggleButton.MouseButton1Click:Connect(toggleAimbot)
 
--- Aimbot Logic
-while true do
-    if aimbotEnabled then
-        local players = game.Players:GetPlayers()
-        local closestPlayer = nil
-        local shortestDistance = math.huge
-        local playerPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+-- Settings button for additional options (optional)
+local settingsButton = Instance.new("TextButton")
+settingsButton.Text = "Settings"
+settingsButton.Size = UDim2.new(1, 0, 0.5, 0)
+settingsButton.Position = UDim2.new(0, 0, 0.5, 0)
+settingsButton.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+settingsButton.BorderSizePixel = 0
+settingsButton.Font = Enum.Font.SourceSans
+settingsButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+settingsButton.TextSize = 18
+settingsButton.Parent = frame
 
-        for i, player in ipairs(players) do
-            if player ~= game.Players.LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-                local dist = (player.Character.HumanoidRootPart.Position - playerPos).Magnitude
-                if dist < shortestDistance then
-                    shortestDistance = dist
-                    closestPlayer = player
-                end
-            end
-        end
-
-        if closestPlayer then
-            -- Calculate direction vector towards closest player
-            local direction = (closestPlayer.Character.HumanoidRootPart.Position - playerPos).unit
-
-            -- Calculate look vector (up direction) for camera orientation
-            local lookVector = Vector3.new(0, 1, 0)
-
-            -- Calculate rotation between look vector and direction
-            local rotation = CFrame.new(Vector3.new(), direction) - CFrame.new(Vector3.new(), lookVector)
-
-            -- Rotate camera by rotation
-            game.Workspace.CurrentCamera.CFrame = game.Workspace.CurrentCamera.CFrame * rotation
-        end
-    end
-    wait(0.1) -- Adjust this value to control the aimbot's frequency
-end
+-- Additional GUI elements such as sliders or dropdown menus can be added here for settings customization
