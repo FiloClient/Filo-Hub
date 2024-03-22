@@ -20,8 +20,8 @@ end
 
 toggleButton.MouseButton1Click:Connect(toggleAimbot)
 
---Logic
-game:GetService("RunService").Stepped:Connect(function()
+-- Aimbot Logic
+while true do
     if aimbotEnabled then
         local players = game.Players:GetPlayers()
         local closestPlayer = nil
@@ -49,7 +49,8 @@ game:GetService("RunService").Stepped:Connect(function()
             local rotation = CFrame.new(Vector3.new(), direction) - CFrame.new(Vector3.new(), lookVector)
 
             -- Rotate camera by rotation
-            game:GetService("Workspace").CurrentCamera.CFrame = game:GetService("Workspace").CurrentCamera.CFrame * rotation
+            game.Workspace.CurrentCamera.CFrame = game.Workspace.CurrentCamera.CFrame * rotation
         end
     end
-end)
+    wait(0.1) -- Adjust this value to control the aimbot's frequency
+end
