@@ -1,4 +1,4 @@
--- Roblox Aimbot Script with Mobile-Compatible GUI, Draggable Bar, and Remove Cheat Button
+-- Roblox Aimbot Script with Mobile-Compatible GUI, Draggable Bar, Remove Cheat Button, and Basic Aimbot
 
 -- GUI Setup
 local gui = Instance.new("ScreenGui")
@@ -62,8 +62,8 @@ end)
 -- Toggle button for aimbot
 local toggleButton = Instance.new("TextButton")
 toggleButton.Text = "Aimbot: OFF"
-toggleButton.Size = UDim2.new(0.45, 0, 0.3, 0)
-toggleButton.Position = UDim2.new(0.025, 0, 0.45, 0)
+toggleButton.Size = UDim2.new(0.3, 0, 0.3, 0)
+toggleButton.Position = UDim2.new(0.05, 0, 0.35, 0)
 toggleButton.AnchorPoint = Vector2.new(0, 0.5)
 toggleButton.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 toggleButton.BorderSizePixel = 0
@@ -77,6 +77,13 @@ local aimbotEnabled = false
 local function toggleAimbot()
     aimbotEnabled = not aimbotEnabled
     toggleButton.Text = aimbotEnabled and "Aimbot: ON" or "Aimbot: OFF"
+    
+    -- Toggle aimbot logic
+    if aimbotEnabled then
+        game:GetService("Players").LocalPlayer:GetMouse().TargetFilter = workspace
+    else
+        game:GetService("Players").LocalPlayer:GetMouse().TargetFilter = nil
+    end
 end
 
 toggleButton.MouseButton1Click:Connect(toggleAimbot)
@@ -84,8 +91,8 @@ toggleButton.MouseButton1Click:Connect(toggleAimbot)
 -- Remove Cheat Button
 local removeButton = Instance.new("TextButton")
 removeButton.Text = "Remove Cheat"
-removeButton.Size = UDim2.new(0.45, 0, 0.3, 0)
-removeButton.Position = UDim2.new(0.525, 0, 0.45, 0)
+removeButton.Size = UDim2.new(0.3, 0, 0.3, 0)
+removeButton.Position = UDim2.new(0.35, 0, 0.35, 0)
 removeButton.AnchorPoint = Vector2.new(0, 0.5)
 removeButton.BackgroundColor3 = Color3.fromRGB(100, 0, 0)
 removeButton.BorderSizePixel = 0
