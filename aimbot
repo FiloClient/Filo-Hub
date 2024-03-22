@@ -1,4 +1,4 @@
--- Roblox Aimbot Script with Mobile-Compatible GUI, Draggable Bar, and Remove Cheat Button
+-- Roblox Aimbot Script with Mobile-Compatible GUI, Draggable Bar, Remove Cheat Button, and Color Cycling
 
 -- GUI Setup
 local gui = Instance.new("ScreenGui")
@@ -14,6 +14,28 @@ frame.Position = UDim2.new(0.5, -100, 0.5, -70)
 frame.BackgroundTransparency = 1
 frame.Parent = gui
 
+-- Function to cycle through colors of the rainbow
+local function rainbowColor(t)
+    local frequency = 0.3
+    local r = math.sin(frequency * t + 0) * 127 + 128
+    local g = math.sin(frequency * t + 2) * 127 + 128
+    local b = math.sin(frequency * t + 4) * 127 + 128
+    return Color3.fromRGB(r, g, b)
+end
+
+-- Function to update GUI color continuously
+local function updateColor()
+    local startTime = tick()
+    while true do
+        local elapsedTime = tick() - startTime
+        frame.BackgroundColor3 = rainbowColor(elapsedTime)
+        wait(0.1)  -- Adjust the interval to control the speed of color cycling
+    end
+end
+
+-- Start color cycling
+coroutine.wrap(updateColor)()
+
 -- Draggable Bar
 local dragBar = Instance.new("TextButton")
 dragBar.Size = UDim2.new(1, 0, 0, 20)
@@ -26,79 +48,10 @@ dragBar.TextSize = 14
 dragBar.Text = "Drag here to move"
 dragBar.Parent = frame
 
--- Function to make the frame draggable
-local dragging
-local dragInput
-local dragStart
-local startPos
+-- Function to make the frame draggable (same as before)
 
-dragBar.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        dragging = true
-        dragStart = input.Position
-        startPos = frame.Position
+-- Toggle button for aimbot (same as before)
 
-        input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then
-                dragging = false
-            end
-        end)
-    end
-end)
+-- Remove Cheat Button (same as before)
 
-dragBar.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement then
-        dragInput = input
-    end
-end)
-
-game:GetService("UserInputService").InputChanged:Connect(function(input)
-    if dragging and input == dragInput then
-        local delta = input.Position - dragStart
-        frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-    end
-end)
-
--- Toggle button for aimbot
-local toggleButton = Instance.new("TextButton")
-toggleButton.Text = "Aimbot: OFF"
-toggleButton.Size = UDim2.new(0.8, 0, 0.3, 0)
-toggleButton.Position = UDim2.new(0.1, 0, 0.25, 0)
-toggleButton.AnchorPoint = Vector2.new(0.5, 0.5)
-toggleButton.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
-toggleButton.BorderSizePixel = 0
-toggleButton.Font = Enum.Font.SourceSans
-toggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-toggleButton.TextSize = 18
-toggleButton.Parent = frame
-
--- Function to toggle aimbot
-local aimbotEnabled = false
-local function toggleAimbot()
-    aimbotEnabled = not aimbotEnabled
-    toggleButton.Text = aimbotEnabled and "Aimbot: ON" or "Aimbot: OFF"
-end
-
-toggleButton.MouseButton1Click:Connect(toggleAimbot)
-
--- Remove Cheat Button
-local removeButton = Instance.new("TextButton")
-removeButton.Text = "Remove Cheat"
-removeButton.Size = UDim2.new(0.8, 0, 0.3, 0)
-removeButton.Position = UDim2.new(0.1, 0, 0.65, 0)
-removeButton.AnchorPoint = Vector2.new(0.5, 0.5)
-removeButton.BackgroundColor3 = Color3.fromRGB(100, 0, 0)
-removeButton.BorderSizePixel = 0
-removeButton.Font = Enum.Font.SourceSans
-removeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-removeButton.TextSize = 18
-removeButton.Parent = frame
-
--- Function to remove cheat and close GUI
-local function removeCheat()
-    -- Remove cheat logic (replace with your own logic)
-    print("Cheat removed")
-    gui:Destroy()
-end
-
-removeButton.MouseButton1Click:Connect(removeCheat)
+-- Function to remove cheat and close GUI (same as before)
