@@ -77,13 +77,6 @@ local aimbotEnabled = false
 local function toggleAimbot()
     aimbotEnabled = not aimbotEnabled
     toggleButton.Text = aimbotEnabled and "Aimbot: ON" or "Aimbot: OFF"
-    
-    -- Toggle aimbot logic
-    if aimbotEnabled then
-        game:GetService("Players").LocalPlayer:GetMouse().TargetFilter = workspace
-    else
-        game:GetService("Players").LocalPlayer:GetMouse().TargetFilter = nil
-    end
 end
 
 toggleButton.MouseButton1Click:Connect(toggleAimbot)
@@ -109,3 +102,30 @@ local function removeCheat()
 end
 
 removeButton.MouseButton1Click:Connect(removeCheat)
+
+-- Basic Aimbot Logic
+game:GetService("RunService").RenderStepped:Connect(function()
+    if aimbotEnabled then
+        local closestDistance = math.huge
+        local closestPlayer = nil
+        local playerPosition = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position
+
+        if playerPosition then
+            for _, player in ipairs(game.Players:GetPlayers()) do
+                if player ~= game.Players.LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                    local targetPosition = player.Character.HumanoidRootPart.Position
+                    local distance = (targetPosition - playerPosition).magnitude
+                    if distance < closestDistance then
+                        closestDistance = distance
+                        closestPlayer = player
+                    end
+                end
+            end
+
+            if closestPlayer then
+                local targetPosition = closestPlayer.Character.HumanoidRootPart.Position
+                game:GetService("Workspace").CurrentCamera.CFrame = CFrame.new(game:GetService("Workspace").CurrentCamera.CFrame.Position, targetPosition)
+            end
+        end
+    end
+end)
