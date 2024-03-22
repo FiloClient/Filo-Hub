@@ -62,8 +62,8 @@ end)
 -- Toggle button for aimbot
 local toggleButton = Instance.new("TextButton")
 toggleButton.Text = "Aimbot: OFF"
-toggleButton.Size = UDim2.new(0.3, 0, 0.3, 0)
-toggleButton.Position = UDim2.new(0.05, 0, 0.35, 0)
+toggleButton.Size = UDim2.new(0.45, 0, 0.3, 0)
+toggleButton.Position = UDim2.new(0.025, 0, 0.45, 0)
 toggleButton.AnchorPoint = Vector2.new(0, 0.5)
 toggleButton.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 toggleButton.BorderSizePixel = 0
@@ -84,8 +84,8 @@ toggleButton.MouseButton1Click:Connect(toggleAimbot)
 -- Remove Cheat Button
 local removeButton = Instance.new("TextButton")
 removeButton.Text = "Remove Cheat"
-removeButton.Size = UDim2.new(0.3, 0, 0.3, 0)
-removeButton.Position = UDim2.new(0.35, 0, 0.35, 0)
+removeButton.Size = UDim2.new(0.45, 0, 0.3, 0)
+removeButton.Position = UDim2.new(0.525, 0, 0.45, 0)
 removeButton.AnchorPoint = Vector2.new(0, 0.5)
 removeButton.BackgroundColor3 = Color3.fromRGB(100, 0, 0)
 removeButton.BorderSizePixel = 0
