@@ -1,3 +1,8 @@
+if
+PlaceId == 6447798030 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/fuyk/main/player"))();
+end
+
 if game.PlaceId == 698448212 then
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2",true))();
 local Window = Library.CreateLib("Filo Hub", "Sentinel")
@@ -40,11 +45,6 @@ local OtherSection = Others:NewSection("Others")
 OtherSection:NewButton("Esp", "this enables the esp", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp"))();
 end)
-
-if
-PlaceId == 6447798030 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/fuyk/main/player"))();
-end
 
 --For every other game
 else
