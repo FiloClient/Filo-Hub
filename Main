@@ -41,6 +41,10 @@ OtherSection:NewButton("Esp", "this enables the esp", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp"))();
 end)
 
+if PlaceId == 6447798030 then
+    loadstring(game:HttGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Funky%20Friday"))();
+end
+
 --For every other game
 else
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2?token=GHSAT0AAAAAACPYDHSSATZ6FPUB5TYCEMXQZPYVGVA"))()
