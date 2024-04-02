@@ -1,9 +1,9 @@
-if
-PlaceId == 6447798030 then
+--Funky Friday
+if PlaceId == 6447798030 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/fuyk/main/player"))();
-end
 
-if game.PlaceId == 698448212 then
+
+elseif game.PlaceId == 698448212 then
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2",true))();
 local Window = Library.CreateLib("Filo Hub", "Sentinel")
 
