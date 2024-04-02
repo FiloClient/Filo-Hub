@@ -41,7 +41,7 @@ OtherSection:NewButton("Esp", "this enables the esp", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp"))();
 end)
 
-elseif
+if
 PlaceId == 6447798030 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/fuyk/main/player"))();
 end
