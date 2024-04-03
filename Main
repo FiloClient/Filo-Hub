@@ -1,9 +1,15 @@
 --Robeats
 if game.PlaceId == 698448212 then
-    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2",true))();
-local Window = Library.CreateLib("Filo Hub", "Sentinel")
 
---Robeats
+    --Funky Friday
+    elseif game.PlaceId == 6447798030 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/fuyk/main/player"))();
+    end
+
+
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2",true))();
+local Window = Library.CreateLib("Filo Hub", "Sentinel")
 local Main = Window:NewTab("RoBeats")
 local MainSection = Main:NewSection("Scripts")
 
@@ -43,7 +49,7 @@ OtherSection:NewButton("Esp", "this enables the esp", function()
 end)
 
 --For every other game
-else
+if else
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2?token=GHSAT0AAAAAACPYDHSSATZ6FPUB5TYCEMXQZPYVGVA"))()
 local Window = Library.CreateLib("Filo Hub", "Sentinel")
 
@@ -74,8 +80,4 @@ local OtherSection = Others:NewSection("Others")
 OtherSection:NewButton("Esp", "this enables the esp", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp"))();
 end)
-
 end
-
-
-print(kerker)
