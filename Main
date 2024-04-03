@@ -1,11 +1,11 @@
+--Funky Friday
+if game.PlaceId == 6447798030 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/fuyk/main/player"))();
+
 --Robeats
-if game.PlaceId == 698448212 then
+elseif game.PlaceId == 698448212 then
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2",true))();
 local Window = Library.CreateLib("Filo Hub", "Sentinel")
-
---Funky Friday
-elseif game.PlaceId == 6447798030 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/fuyk/main/player"))();
 
 --Robeats
 local Main = Window:NewTab("RoBeats")
