@@ -1,5 +1,5 @@
 --Robeats
-elseif game.PlaceId == 698448212 then
+if game.PlaceId == 698448212 then
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2",true))();
 local Window = Library.CreateLib("Filo Hub", "Sentinel")
 
