@@ -1,6 +1,7 @@
 --Funky Friday
 if game.PlaceId == 6447798030 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/fuyk/main/player"))();
+end
 
 --Robeats
 elseif game.PlaceId == 698448212 then
