@@ -1,3 +1,7 @@
+if game.placeid == 6447798030 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/fuyk/main/player"))()
+end
+
 --RoBeats
 if game.PlaceId == 698448212 then
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2",true))();
@@ -40,13 +44,8 @@ OtherSection:NewButton("Esp", "this enables the esp", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp"))();
 end)
 
-elseif game.placeid == 6447798030 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/fuyk/main/player"))()
-end
-
-
 --For every other game
-if game.placeid ~ 6447798030 or 698448212 then
+else
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2?token=GHSAT0AAAAAACPYDHSSATZ6FPUB5TYCEMXQZPYVGVA"))()
 local Window = Library.CreateLib("Filo Hub", "Sentinel")
 
