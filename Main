@@ -5,17 +5,19 @@ if game.PlaceId == 698448212 then
     local Main = Window:NewTab("RoBeats")
     local MainSection = Main:NewSection("Scripts")
 
-    -- off n on
+    -- State variable to track autoplay
     local autoplayEnabled = false
     local autoplayScript
 
-    MainSection:NewButton("Autoplay", "Toggle Filo Autoplay on and off", function()
+    MainSection:NewButton("Toggle Autoplay", "Toggle Filo Autoplay on and off", function()
         autoplayEnabled = not autoplayEnabled
         if autoplayEnabled then
+            print("Autoplay Enabled")
             autoplayScript = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-for-Robeats/main/Autobot", true))()
         else
-            if autoplayScript and autoplayScript.Disable then
-                autoplayScript.Disable()
+            print("Autoplay Disabled")
+            if autoplayScript and autoplayScript.Stop then
+                autoplayScript.Stop()
             end
         end
     end)
@@ -38,6 +40,14 @@ if game.PlaceId == 698448212 then
 
     OtherSection:NewButton("Esp", "this enables the esp", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp", true))()
+    end)
+
+    -- Button to move GUI to bottom right
+    OtherSection:NewButton("Move GUI to Bottom Right", "Moves the GUI to the bottom right corner", function()
+        local screenSize = game:GetService("Workspace").CurrentCamera.ViewportSize
+        local gui = Window.MainFrame
+        gui.Position = UDim2.new(1, -300, 1, -150) -- Adjust as necessary for size and position
+        gui.Size = UDim2.new(0, 300, 0, 150) -- Adjust as necessary for size and position
     end)
 
 elseif game.PlaceId == 6447798030 then
@@ -66,5 +76,12 @@ else
 
     OtherSection:NewButton("Esp", "this enables the esp", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp", true))()
+    end)
+
+    OtherSection:NewButton("Move GUI to Bottom Right", "Moves the GUI to the bottom right corner", function()
+        local screenSize = game:GetService("Workspace").CurrentCamera.ViewportSize
+        local gui = Window.MainFrame
+        gui.Position = UDim2.new(1, -300, 1, -150) -- Adjust as necessary for size and position
+        gui.Size = UDim2.new(0, 300, 0, 150) -- Adjust as necessary for size and position
     end)
 end
