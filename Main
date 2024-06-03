@@ -1,44 +1,39 @@
 --RoBeats
 if game.PlaceId == 698448212 then
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2",true))();
-local Window = Library.CreateLib("Filo Hub", "Sentinel")
-local Main = Window:NewTab("RoBeats")
-local MainSection = Main:NewSection("Scripts")
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2",true))();
+    local Window = Library.CreateLib("Filo Hub", "Sentinel")
+    local Main = Window:NewTab("RoBeats")
+    local MainSection = Main:NewSection("Scripts")
 
 
-MainSection:NewButton("Filo Autoplay", "This enables Filo Autoplay", function()
+    MainSection:NewButton("Filo Autoplay", "This enables Filo Autoplay", function()
     print("Executed")
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-for-Robeats/main/Autobot",true))();
-end)
+    end)
 
 
---player
-local Player = Window:NewTab("Player")
-local PlayerSection = Player:NewSection("Player")
+    --player
+    local Player = Window:NewTab("Player")
+    local PlayerSection = Player:NewSection("Player")
 
-PlayerSection:NewSlider("SPEEEEED", "This makes you Nagah after stealing", 500, 16, function(s) 
+    PlayerSection:NewSlider("SPEEEEED", "This makes you Nagah after stealing", 500, 16, function(s) 
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
-end)
+    end)
 
-PlayerSection:NewButton("Reset your speed", "This resets your speed (lol)", function()
-    game.Players.Localplayer.Character.Humanoid.WalkSpeed = 16
-end)
+    PlayerSection:NewSlider("Jump", "This is for my 1.20 classmate named Estripper so he can feel tall", 500, 50, function(s) 
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+    end)
 
-PlayerSection:NewSlider("Jump", "This is for my 1.20 classmate named Estripper so he can feel tall", 500, 50, function(s) 
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
-end)
+    --Other things
+    local Others = Window:NewTab("Others")
+    local OtherSection = Others:NewSection("Others")
 
-PlayerSection:NewButton("Reset your JumpPower", "This resets your JumpPower (lol)", function()
-    game.Players.Localplayer.Character.Humanoid.JumpPower = 50
-end)
+    OtherSection:NewButton("Esp", "this enables the esp", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp"))();
+    end)
 
---Other things
-local Others = Window:NewTab("Others")
-local OtherSection = Others:NewSection("Others")
-
-OtherSection:NewButton("Esp", "this enables the esp", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp"))();
-end)
+elseif game.placeid == 6447798030 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/fuyk/main/player"))()
 
 --For every other game
 else
@@ -53,23 +48,9 @@ PlayerSection:NewSlider("SPEEEEED", "This makes you Nagah after stealing", 500, 
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
 
-PlayerSection:NewButton("Reset your speed", "This resets your speed (lol)", function()
-    game.Players.Localplayer.Character.Humanoid.WalkSpeed = 16
-end)
-
 PlayerSection:NewSlider("Jump", "This is for my 1.20 classmate named Estripper so he can jump high", 500, 50, function(s) 
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
-
-PlayerSection:NewButton("Reset your JumpPower", "This resets your JumpPower (lol)", function()
-    game.Players.Localplayer.Character.Humanoid.JumpPower = 50
-end)
-
---tt
-if game.placeid == 6447798030 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/fuyk/main/player"))()
-end
-
 
 --Other things
 local Others = Window:NewTab("Others")
