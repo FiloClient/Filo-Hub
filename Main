@@ -5,9 +5,19 @@ if game.PlaceId == 698448212 then
     local Main = Window:NewTab("RoBeats")
     local MainSection = Main:NewSection("Scripts")
 
-    MainSection:NewButton("Filo Autoplay", "This enables Filo Autoplay", function()
-        print("Executed")
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-for-Robeats/main/Autobot", true))()
+    -- off n on
+    local autoplayEnabled = false
+    local autoplayScript
+
+    MainSection:NewButton("Autoplay", "Toggle Filo Autoplay on and off", function()
+        autoplayEnabled = not autoplayEnabled
+        if autoplayEnabled then
+            autoplayScript = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-for-Robeats/main/Autobot", true))()
+        else
+            if autoplayScript and autoplayScript.Disable then
+                autoplayScript.Disable()
+            end
+        end
     end)
 
     -- Player
@@ -29,10 +39,12 @@ if game.PlaceId == 698448212 then
     OtherSection:NewButton("Esp", "this enables the esp", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp", true))()
     end)
+
 elseif game.PlaceId == 6447798030 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/fuyk/main/player", true))()
+
+-- For every other game
 else
-    -- For every other game
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2", true))()
     local Window = Library.CreateLib("Filo Hub", "Sentinel")
 
