@@ -21,6 +21,14 @@ if game.PlaceId == 698448212 then
         end
     end)
 
+    local disableAutoplayButton = MainSection:NewButton("Disable Autoplay", "Disable Filo Autoplay", function()
+        autoplayEnabled = false
+        print("Autoplay Disabled")
+        if autoplayScript and autoplayScript.Stop then
+            autoplayScript.Stop()
+        end
+    end)
+
     -- Player
     local Player = Window:NewTab("Player")
     local PlayerSection = Player:NewSection("Player")
