@@ -4,9 +4,10 @@ if game.PlaceId == 698448212 then
     local Main = Window:NewTab("RoBeats")
     local MainSection = Main:NewSection("Scripts")
 
-    -- State variable to track autoplay
+    -- State variables to track features
     local autoplayEnabled = false
     local autoplayScript
+    local espEnabled = false
 
     local toggleAutoplayButton = MainSection:NewButton("Toggle Autoplay", "Toggle Filo Autoplay on and off", function()
         autoplayEnabled = not autoplayEnabled
@@ -18,6 +19,17 @@ if game.PlaceId == 698448212 then
             if autoplayScript and autoplayScript.Stop then
                 autoplayScript.Stop()
             end
+        end
+    end)
+
+    local toggleESPButton = MainSection:NewButton("Toggle ESP", "Toggle Filo ESP on and off", function()
+        espEnabled = not espEnabled
+        if espEnabled then
+            print("ESP Enabled")
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp", true))()
+        else
+            print("ESP Disabled")
+            -- Insert code to disable ESP here
         end
     end)
 
@@ -36,10 +48,6 @@ if game.PlaceId == 698448212 then
     -- Other things
     local Others = Window:NewTab("Others")
     local OtherSection = Others:NewSection("Others")
-
-    OtherSection:NewButton("Esp", "this enables the esp", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp", true))()
-    end)
 
     -- Button to move GUI to bottom right
     OtherSection:NewButton("Move GUI to Bottom Right", "Moves the GUI to the bottom right corner", function()
@@ -73,10 +81,7 @@ else
     local Others = Window:NewTab("Others")
     local OtherSection = Others:NewSection("Others")
 
-    OtherSection:NewButton("Esp", "this enables the esp", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp", true))()
-    end)
-
+    -- Button to move GUI to bottom right
     OtherSection:NewButton("Move GUI to Bottom Right", "Moves the GUI to the bottom right corner", function()
         local screenSize = game:GetService("Workspace").CurrentCamera.ViewportSize
         local gui = Window.MainFrame
