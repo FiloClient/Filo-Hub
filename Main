@@ -49,6 +49,10 @@ if game.PlaceId == 698448212 then
     local Others = Window:NewTab("Others")
     local OtherSection = Others:NewSection("Others")
 
+    OtherSection:NewButton("Esp", "this enables the esp", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp", true))()
+    end)
+
     -- Button to move GUI to bottom right
     OtherSection:NewButton("Move GUI to Bottom Right", "Moves the GUI to the bottom right corner", function()
         local screenSize = game:GetService("Workspace").CurrentCamera.ViewportSize
