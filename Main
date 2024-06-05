@@ -1,36 +1,12 @@
+--RoBeats
 if game.PlaceId == 698448212 then
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2", true))()
     local Window = Library.CreateLib("Filo Hub", "Sentinel")
     local Main = Window:NewTab("RoBeats")
     local MainSection = Main:NewSection("Scripts")
 
-    -- State variables to track features
-    local autoplayEnabled = false
-    local autoplayScript
-    local espEnabled = false
-
-    local toggleAutoplayButton = MainSection:NewButton("Toggle Autoplay", "Toggle Filo Autoplay on and off", function()
-        autoplayEnabled = not autoplayEnabled
-        if autoplayEnabled then
-            print("Autoplay Enabled")
-            autoplayScript = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-for-Robeats/main/Autobot", true))()
-        else
-            print("Autoplay Disabled")
-            if autoplayScript and autoplayScript.Stop then
-                autoplayScript.Stop()
-            end
-        end
-    end)
-
-    local toggleESPButton = MainSection:NewButton("Toggle ESP", "Toggle Filo ESP on and off", function()
-        espEnabled = not espEnabled
-        if espEnabled then
-            print("ESP Enabled")
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp", true))()
-        else
-            print("ESP Disabled")
-            -- Insert code to disable ESP here
-        end
+    MainSection:NewButton("Filo Autoplay", "This enables Filo Autoplay", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-for-Robeats/main/Autobot", true))()
     end)
 
     -- Player
@@ -52,20 +28,11 @@ if game.PlaceId == 698448212 then
     OtherSection:NewButton("Esp", "this enables the esp", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp", true))()
     end)
-
-    -- Button to move GUI to bottom right
-    OtherSection:NewButton("Move GUI to Bottom Right", "Moves the GUI to the bottom right corner", function()
-        local screenSize = game:GetService("Workspace").CurrentCamera.ViewportSize
-        local gui = Window.MainFrame
-        gui.Position = UDim2.new(1, -300, 1, -150) -- Adjust as necessary for size and position
-        gui.Size = UDim2.new(0, 300, 0, 150) -- Adjust as necessary for size and position
-    end)
-
+--FunkyFriday
 elseif game.PlaceId == 6447798030 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/fuyk/main/player", true))()
-
--- For every other game
 else
+    -- For every other game
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Gui-/main/guiv2", true))()
     local Window = Library.CreateLib("Filo Hub", "Sentinel")
 
@@ -87,13 +54,5 @@ else
 
     OtherSection:NewButton("Esp", "this enables the esp", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/FiloClient/Filo-Hub/main/Esp", true))()
-    end)
-
-    -- Button to move GUI to bottom right
-    OtherSection:NewButton("Move GUI to Bottom Right", "Moves the GUI to the bottom right corner", function()
-        local screenSize = game:GetService("Workspace").CurrentCamera.ViewportSize
-        local gui = Window.MainFrame
-        gui.Position = UDim2.new(1, -300, 1, -150) -- Adjust as necessary for size and position
-        gui.Size = UDim2.new(0, 300, 0, 150) -- Adjust as necessary for size and position
     end)
 end
